@@ -5,9 +5,13 @@ document.addEventListener("change", (e)=>{
   img.style.display = "block";
   img.src = url;  
 });
-document.addEventListener("DOMContentLoaded", () => {
-  if (window.location.pathname == '/getPass.html'){next()}
-});
+if (window.location.pathname == '/getPass.html'){
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", next);
+} else {
+    next();
+}
+};
 
 function viewPasses() {
   alert("here are ur passes");
